@@ -10,3 +10,4 @@ secure-smtplib
 email
 supabase-py
 st_login_form
+setuptools
