@@ -123,6 +123,7 @@ def fraudDetection():
 
         if predict:
             features = np.array(filtered_input, dtype=np.float64)
+            st.write(features.shape)
             try:
                 prediction = xgb.predict(features.reshape(1, -1))
                 if prediction[0] == 0:
