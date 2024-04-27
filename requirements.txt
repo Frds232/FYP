@@ -10,3 +10,4 @@ streamlit_option_menu
 secure-smtplib
 supabase-py
 st_login_form
+pymysql
