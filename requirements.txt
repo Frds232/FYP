@@ -5,3 +5,8 @@ xgboost
 matplotlib
 seaborn
 bcrypt
+streamlit_option_menu
+smtplib
+email
+supabase-py
+st_login_form
