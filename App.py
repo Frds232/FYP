@@ -22,7 +22,7 @@ from email.message import EmailMessage
 import os
 
 from dotenv import load_dotenv
-import setupDatabase as db
+
 
 from supabase import create_client, Client
 from st_login_form import login_form
