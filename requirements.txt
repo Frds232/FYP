@@ -8,6 +8,5 @@ seaborn
 bcrypt
 streamlit_option_menu
 secure-smtplib
-email
 supabase-py
 st_login_form
