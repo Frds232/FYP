@@ -8,7 +8,7 @@ seaborn
 bcrypt
 streamlit_option_menu
 secure-smtplib
-supabase-py
+supabase
 st_login_form
 pymysql
 streamlit_authenticator
