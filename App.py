@@ -114,6 +114,7 @@ def fraudDetection():
                 if input_df and len(input_df_lst) == len(feature_mapping):
                     filtered_input = [input_df_lst[feature_mapping[col]] for col in selected_features]
                     st.write("features have been filtered")
+                    st.write(len(filteredinput))
                 else:
                     st.write("features have not been filtered")
                     st.error("Input Features length mismatch!")
@@ -125,6 +126,7 @@ def fraudDetection():
 
         if predict:
             features = np.array(filtered_input, dtype=np.float64)
+            st.write(features.shape)
             st.write("inside predict")
             try:
                 prediction = xgb.predict(features.reshape(1, -1))
