@@ -92,9 +92,9 @@ def fraudDetection():
         'V26': 26, 'V27': 27, 'V28': 28, 'Amount': 29
     }
 
-    selected_features = ['V17', 'V14', 'V10', 'V12', 'V7', 'V4', 'V21', 'V3', 'V28', 'V18',
-                        'V26', 'V20', 'V27', 'V1', 'V25', 'V13', 'V15', 'Time', 'V8',
-                        'V24', 'V11', 'V9', 'V2', 'Amount', 'V16']
+    #selected_features = ['V17', 'V14', 'V10', 'V12', 'V7', 'V4', 'V21', 'V3', 'V28', 'V18',
+              #          'V26', 'V20', 'V27', 'V1', 'V25', 'V13', 'V15', 'Time', 'V8',
+                 #       'V24', 'V11', 'V9', 'V2', 'Amount', 'V16']
 
     # Loading our trained model
     pickle_in = open("xgb_tuned.pkl", "rb")
@@ -111,22 +111,20 @@ def fraudDetection():
             # Validate the input
             if validate_input(input_df):
                 input_df_lst = [float(x) for x in input_df.split(',')]
-                if input_df and len(input_df_lst) == len(feature_mapping):
-                    filtered_input = [input_df_lst[feature_mapping[col]] for col in selected_features]
-                    st.write(len(filtered_input))
-                    st.write("features have been filtered")
-                else:
-                    st.write("features have not been filtered")
-                    st.error("Input Features length mismatch!")
-                    return
+                # if input_df and len(input_df_lst) == len(feature_mapping):
+                #     filtered_input = [input_df_lst[feature_mapping[col]] for col in selected_features]
+                #     st.write("features have been filtered")
+                # else:
+                #     st.write("features have not been filtered")
+                #     st.error("Input Features length mismatch!")
+                #     return
         except:
             st.warning('Please enter 30 comma-separated feature values.')
 
         predict = st.form_submit_button("Predict")
 
         if predict:
-            features = np.array(filtered_input, dtype=np.float64)
-            st.write(features.shape)
+            features = np.array(input_df_lst, dtype=np.float64)
             st.write("inside predict")
             try:
                 prediction = xgb.predict(features.reshape(1, -1))
