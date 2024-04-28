@@ -113,7 +113,7 @@ def fraudDetection():
                 input_df_lst = [float(x) for x in input_df.split(',')]
                 if input_df and len(input_df_lst) == len(feature_mapping):
                     filtered_input = [input_df_lst[feature_mapping[col]] for col in selected_features]
-                    st.write(len(filteredinput))
+                    st.write(len(filtered_input))
                     st.write("features have been filtered")
                 else:
                     st.write("features have not been filtered")
